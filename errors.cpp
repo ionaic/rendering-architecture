@@ -1,0 +1,265 @@
+﻿// NOTE: most of this is copied from past projects of mine
+
+#include "errors.h"
+
+void checkGLError(const char *msg, const char *fname, const int line) {
+    GLenum err = glGetError();
+
+    if (err != GL_NO_ERROR) {
+        std::cerr << std::string(fname) << ":" << line << " " << std::string(msg) << std::endl << "    ";
+        switch (err) {
+            case GL_INVALID_ENUM:
+                std::cerr << "GL INVALID ENUM";
+                break;
+            case GL_INVALID_VALUE:
+                std::cerr << "GL INVALID VALUE";
+                break;
+            case GL_INVALID_OPERATION:
+                std::cerr << "GL INVALID OPERATION";
+                break;
+            case GL_STACK_OVERFLOW:
+                std::cerr << "GL STACK OVERFLOW";
+                break;
+            case GL_STACK_UNDERFLOW:
+                std::cerr << "GL STACK UNDERFLOW";
+                break;
+            case GL_OUT_OF_MEMORY:
+                std::cerr << "GL OUT OF MEMORY";
+                break;
+            default:
+                std::cerr << "GL UNKNOWN ERROR"; 
+        }
+        std::cerr << " " << err << " " << gluErrorString(err) << std::endl;
+    }
+#ifdef VERBOSE
+    else {
+        //output progress message even if no error
+        errorMsg(msg, fname, line);
+    }
+#endif
+}
+void translateGLFramebufferError(GLenum err) {
+	switch (err) {
+	case GL_FRAMEBUFFER_UNDEFINED:
+		std::cerr << "GL_FRAMEBUFFER_UNDEFINED\n";
+		std::cerr << "\tis returned if target is the default framebuffer, but the default framebuffer does not exist.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT\n";
+		std::cerr << "\tis returned if any of the framebuffer attachment points are framebuffer incomplete.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT\n";
+		std::cerr << "\tis returned if the framebuffer does not have at least one image attached to it.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER\n";
+		std::cerr << "\tis returned if the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE for any color attachment point(s) named by GL_DRAWBUFFERi.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER\n";
+		std::cerr << "\tis returned if GL_READ_BUFFER is not GL_NONE and the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE for the color attachment point named by GL_READ_BUFFER.\n";
+		break;
+	case GL_FRAMEBUFFER_UNSUPPORTED:
+		std::cerr << "GL_FRAMEBUFFER_UNSUPPORTED\n";
+		std::cerr << "\tis returned if the combination of internal formats of the attached images violates an implementation-dependent set of restrictions.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE\n";
+		std::cerr << "\tis returned if the value of GL_RENDERBUFFER_SAMPLES is not the same for all attached renderbuffers; if the value of GL_TEXTURE_SAMPLES is the not same for all attached textures; or, if the attached images are a mix of renderbuffers and textures, the value of GL_RENDERBUFFER_SAMPLES does not match the value of GL_TEXTURE_SAMPLES.";
+		std::cerr << "\tis also returned if the value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS is not the same for all attached textures; or, if the attached images are a mix of renderbuffers and textures, the value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS is not GL_TRUE for all attached textures.\n";
+		break;
+	case GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
+		std::cerr << "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS\n";
+		std::cerr << "\tis returned if any framebuffer attachment is layered, and any populated attachment is not layered, or if all populated color attachments are not from textures of the same target.\n";
+		break;
+	}
+}
+void checkGLFramebufferError(const char *fname, const int line) {
+	GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+	if (GL_FRAMEBUFFER_COMPLETE != err) {
+		std::cerr << "Error with GL_FRAMEBUFFER in "<<fname<<" line "<<line<<": ";
+		translateGLFramebufferError(err);
+	}
+}
+void checkGLReadFramebufferError(const char *fname, const int line) {
+	GLenum err = glCheckFramebufferStatus(GL_READ_FRAMEBUFFER);
+	if (GL_FRAMEBUFFER_COMPLETE != err) {
+		std::cerr << "Error with GL_READ_FRAMEBUFFER in "<<fname<<" line "<<line<<": ";
+		translateGLFramebufferError(err);
+	}
+}
+
+void checkGLProgramError(ShaderInfo shdr, const char *fname, const int line) {
+    GLenum err = glGetError();
+
+    if (err != GL_NO_ERROR) {
+        std::cerr << std::string(fname) << ":" << line << " " << "Failed to use shader program" << std::endl << "    ";
+        switch (err) {
+            case GL_INVALID_ENUM:
+                printf("GL INVALID ENUM");
+                break;
+            case GL_INVALID_VALUE:
+                printf("GL INVALID VALUE\n\tis generated if program is neither 0 nor a value generated by OpenGL.");
+                break;
+            case GL_INVALID_OPERATION:
+				{
+                printf("GL INVALID OPERATION\n");
+				printf("\tis generated if program is not a program object.\n");
+				GLboolean isProgram = glIsProgram(shdr.program);
+				printf("\t    program is%sa program object\n", isProgram ? " " : " not ");
+				printf("\tis generated if program could not be made part of current state.\n");
+				bool framebuffer = glCheckFramebufferStatus(GL_FRAMEBUFFER)==GL_FRAMEBUFFER_COMPLETE;
+				printf("\t    The framebuffer is %s\n",(framebuffer?"reporting no errors":"reporting an error.\n\t\tTry calling checkGLFramebufferError"));
+				glValidateProgram(shdr.program);
+				GLint valid;
+				glGetProgramiv(shdr.program,GL_VALIDATE_STATUS,&valid);
+				if (valid==GL_FALSE) {
+					printf("\t    The program CANNOT execute in the current gl state.\n");
+					printf("\t\tany two active samplers in the current program object may be of\n\t\tdifferent types, but refer to the same texture image unit, or\n");
+					printf("\t\tthe number of active samplers in the program exceeds the maximum\t\tnumber of texture image units allowed.\n");
+					GLint maxTex, totalUniforms;
+					glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS,&maxTex);
+					glGetProgramiv(shdr.program,GL_ACTIVE_UNIFORMS,&totalUniforms);
+					if (maxTex>totalUniforms) {
+						printf("\t\t    Your program is using %i total uniforms of %i available\n",totalUniforms,maxTex);
+					} else {
+						printf("\t\t    Your program has %i active uniforms (includes texture units)\n",totalUniforms);
+						printf("\t\t    Your maximum number of combined texture image units is %i\n",maxTex);
+						printf("\t\t\tCombined use of all shaders in a bound program\n\t\t\tUse of same texture in 2 shaders counts as 2\n");
+						printf("\t\t    The minumum value for any OpenGL implementation is\n");
+						printf("\t\t\t48 for textures actively used in a program\n");
+						printf("\t\t\t80 for textures bound but not actively used\n");
+					}
+				} else {
+					printf("\t    the program can execute in the current gl state.\n");
+				}
+				printf("\t    This is not a complete check of the gl state\n");
+				printf("\tis generated if transform feedback mode is active.\n");
+				GLint transformFeedback;
+				glGetIntegerv(GL_TRANSFORM_FEEDBACK_BINDING,&transformFeedback);
+				printf("\t    %s transform feedback object is bound to the gl state%s\n",(transformFeedback==0?"No":"An"),(transformFeedback==0?"":"\n\t\tTry calling glBindTransformFeedback(GL_TRANSFORM_FEEDBACK,0)"));
+                break;
+				}
+            case GL_STACK_OVERFLOW:
+                printf("GL STACK OVERFLOW\n");
+                break;
+            case GL_STACK_UNDERFLOW:
+                printf("GL STACK UNDERFLOW\n");
+                break;
+            case GL_OUT_OF_MEMORY:
+                printf("GL OUT OF MEMORY\n");
+                break;
+            default:
+                printf("GL UNKNOWN ERROR\n"); 
+        }
+		printf("    You tried to bind...\n\tProgram ID: %i\n\t   Vert ID: %i\n\t   Frag ID: %i\n",shdr.program, shdr.vertex, shdr.fragment);
+		GLint program;
+		glGetIntegerv(GL_CURRENT_PROGRAM,&program);
+		printf("    Program ID after attempt: %i\n",program);
+		printf("    GLU error string: %s\n",gluErrorString(err));
+		
+		GLuint shaders[10];
+		GLsizei shaderCount;
+		glGetAttachedShaders(shdr.program,10,&shaderCount,shaders);
+		GLint linkStats, deleteStats;
+		glGetProgramiv(shdr.program,GL_LINK_STATUS,&linkStats);
+		glGetProgramiv(shdr.program,GL_DELETE_STATUS,&deleteStats);
+		printf("    The program is %slinked and %smarked for deletion\n",(linkStats==GL_TRUE?"":"not "),(deleteStats==GL_TRUE?"":"not "));
+		GLint logLen;
+		glGetProgramiv(shdr.program,GL_INFO_LOG_LENGTH,&logLen);
+		if (logLen > 0) {
+			char *infoLog = new char[logLen+1];
+			GLint retlen;
+			glGetProgramInfoLog(shdr.program,logLen,&retlen,infoLog);
+			printf("    Info Log: %s\n",infoLog);
+			delete[] infoLog;
+		} else {
+			printf("    There is no info log for this program.\n");
+		}
+		printf("    There are %i shaders attached to the program\n",shaderCount);
+		for (GLsizei i = 0; i<shaderCount; ++i) {
+			if (glIsShader(shaders[i])==GL_FALSE) {
+				printf("\tAn invalid shader id (%i) is attached to this program.\n",shaders[i]);
+				continue;
+			}
+			GLint type, compiled, deleteStatus;
+			glGetShaderiv(shaders[i],GL_SHADER_TYPE,&type);
+			glGetShaderiv(shaders[i],GL_COMPILE_STATUS,&compiled);
+			glGetShaderiv(shaders[i],GL_DELETE_STATUS,&deleteStatus);
+			const char *typeName = "unknown";
+			switch(type) {
+			case GL_VERTEX_SHADER: typeName = "vertex"; break;
+			case GL_FRAGMENT_SHADER: typeName = "fragment"; break;
+			case GL_GEOMETRY_SHADER: typeName = "geometry"; break;
+			case GL_TESS_CONTROL_SHADER: typeName = "tess ctrl"; break;
+			case GL_TESS_EVALUATION_SHADER: typeName = "tess eval"; break;
+			}
+			printf("\tThe %s shader has %sbeen compiled and is %smarked for deletion\n",typeName,(GL_COMPILE_STATUS?"":"not "),(deleteStatus?"":"not "));
+			GLint srcLen;
+			glGetShaderiv(shaders[i],GL_SHADER_SOURCE_LENGTH,&srcLen);
+			printf("\t    Source Length: %i characters\n",srcLen);
+			printf("\t    Shader ID: %i characters\n",shaders[i]);
+			GLint logLen;
+			glGetShaderiv(shaders[i],GL_INFO_LOG_LENGTH,&logLen);
+			if (logLen > 0) {
+				char *infoLog = new char[logLen+1];
+				GLint retlen;
+				glGetShaderInfoLog(shaders[i],logLen,&retlen,infoLog);
+				printf("\t    Info Log: %s\n",infoLog);
+				delete[] infoLog;
+			} else {
+				printf("\t    There is no info log for this shader.\n");
+			}
+		}
+    }
+#ifdef VERBOSE
+    else {
+        //output progress message even if no error
+        errorMsg(msg, fname, line);
+    }
+#endif
+}
+
+// mostly copied from example for debugging purposes
+void checkShader(GLuint shader, const char *fname) {
+	GLint status, len;
+    GLchar log[1024];
+
+    // retrieve compile status
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+
+    // get the log
+    glGetShaderInfoLog(shader, sizeof(log), &len, log);
+
+    // print it out
+	if (status) {
+        printf("OpenGL Shader Compile OK:\n%s\n", log);
+		//std::cerr << "OpenGL Shader Compile OK:\n" << log << std::endl;
+	}
+    else {
+        printf("GLSL Compilation Error in %s:\n%s\n", fname, log);
+        //std::cerr << "GLSL Compilation Error in " << std::string(fname) << ": " << std::endl << std::string(log) << std::endl;
+	}
+}
+
+void checkProgram(const GLuint id, const GLuint fragment, const GLuint vertex) {
+	glValidateProgram(id);
+    checkGLError("Error validating shader program.", __FILE__, __LINE__);
+
+	GLboolean isProgram = glIsProgram(id);
+    printf("    Program is%sa program\n", isProgram ? " " : " not ");
+
+	char buffer[2048];
+	GLsizei length;
+	glGetProgramInfoLog(id, 2048, &length, buffer);
+    printf("    Program Info Log (size %d): %s\n", length, buffer);
+	glGetShaderInfoLog(fragment, 2048, &length, buffer);
+    printf("    Program Frag Log (size %d): %s\n", length, buffer);
+	glGetShaderInfoLog(vertex, 2048, &length, buffer);
+    printf("    Program Vert Log (size %d): %s\n", length, buffer);
+}
+
+void errorMsg(const char *msg, const char *fname, const int line) {
+    printf("%s:%d %s\n", fname, line, msg);
+}
