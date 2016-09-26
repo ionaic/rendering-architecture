@@ -1,10 +1,21 @@
-// i should probably start using pragma once
-#ifndef _BASE_H_
-#define _BASE_H_
+#pragma once
 
 #include <iostream>
 #include <string>
 #include "glinc.h"
+#include "errors.h"
+#include "meshloader.h"
 
+class BaseApp {
+    public:
+        BaseApp();
+        BaseApp(unsigned int window_width, unsigned int window_height);
+        ~BaseApp();
 
-#endif
+        int Initialize();
+        void Run();
+        
+        GLFWwindow *window;
+        unsigned int window_width;
+        unsigned int window_height;
+};
