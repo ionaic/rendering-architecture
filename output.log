@@ -1,0 +1,2287 @@
+g++ -g `pkg-config --cflags glfw3 glew` -o teapot  rawmesh.cpp meshloader.cpp errors.cpp base.cpp main.cpp   `pkg-config --static --libs glfw3 glew`
+rawmesh.cpp: In member function ‘void RawMesh::addUvs(const std::vector<glm::tvec3<float, (glm::precision)0u> >&)’:
+rawmesh.cpp:20:48: error: conversion from ‘std::vector<glm::tvec3<float, (glm::precision)0u> >::const_iterator {aka __gnu_cxx::__normal_iterator<const glm::tvec3<float, (glm::precision)0u>*, std::vector<glm::tvec3<float, (glm::precision)0u> > >}’ to non-scalar type ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ requested
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                ^
+rawmesh.cpp:20:56: error: no match for ‘operator!=’ (operand types are ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ and ‘std::vector<glm::tvec3<float, (glm::precision)0u> >::const_iterator {aka __gnu_cxx::__normal_iterator<const glm::tvec3<float, (glm::precision)0u>*, std::vector<glm::tvec3<float, (glm::precision)0u> > >}’)
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                        ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from rawmesh.h:5,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/basic_string.h:4974:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4974:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from rawmesh.h:5,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/basic_string.h:4962:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const _CharT* __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4962:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   mismatched types ‘const _CharT*’ and ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from rawmesh.h:5,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/basic_string.h:4950:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4950:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/char_traits.h:40:0,
+                 from /usr/include/c++/5/string:40,
+                 from rawmesh.h:5,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/postypes.h:221:5: note: candidate: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/5/bits/postypes.h:221:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::fpos<_StateT>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_vector.h:1535:5: note: candidate: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/5/bits/stl_vector.h:1535:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >::const_iterator {aka __gnu_cxx::__normal_iterator<const glm::tvec3<float, (glm::precision)0u>*, std::vector<glm::tvec3<float, (glm::precision)0u> > >}’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/vector:61:0,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/allocator.h:146:5: note: candidate: template<class _Tp> bool std::operator!=(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+     operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/5/bits/allocator.h:146:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::allocator<_Tp1>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/vector:61:0,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/allocator.h:140:5: note: candidate: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_Tp1>&, const std::allocator<_T2>&)
+     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/5/bits/allocator.h:140:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::allocator<_Tp1>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/vector:60,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:354:5: note: candidate: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator!=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:354:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/vector:60,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:304:5: note: candidate: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator!=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:304:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/5/vector:60,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_pair.h:227:5: note: candidate: template<class _T1, class _T2> bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/5/bits/stl_pair.h:227:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const std::pair<_T1, _T2>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:599:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tvec1<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tvec1<T, P> const & v1, tvec1<T, P> const & v2)
+                          ^
+/usr/include/glm/detail/type_vec1.inl:599:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:778:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat4x4<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat4x4<T, P> const & m1, tmat4x4<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat4x4.inl:778:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:615:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat4x3<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat4x3<T, P> const & m1, tmat4x3<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat4x3.inl:615:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:591:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat4x2<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat4x2<T, P> const & m1, tmat4x2<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat4x2.inl:591:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:585:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat3x4<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat3x4<T, P> const & m1, tmat3x4<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat3x4.inl:585:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:636:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat3x3<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat3x3<T, P> const & m1, tmat3x3<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat3x3.inl:636:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:545:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat3x2<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat3x2<T, P> const & m1, tmat3x2<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat3x2.inl:545:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:520:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat2x4<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat2x4<T, P> const & m1, tmat2x4<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat2x4.inl:520:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:511:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat2x3<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat2x3<T, P> const & m1, tmat2x3<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat2x3.inl:511:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:553:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tmat2x2<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2)
+                          ^
+/usr/include/glm/detail/type_mat2x2.inl:553:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:1107:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tvec4<T, P>&, const glm::tvec4<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+                          ^
+/usr/include/glm/detail/type_vec4.inl:1107:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:1037:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tvec3<T, P>&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tvec3<T, P> const & v1, tvec3<T, P> const & v2)
+                          ^
+/usr/include/glm/detail/type_vec3.inl:1037:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:918:26: note: candidate: template<class T, glm::precision P> bool glm::operator!=(const glm::tvec2<T, P>&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER bool operator!=(tvec2<T, P> const & v1, tvec2<T, P> const & v2)
+                          ^
+/usr/include/glm/detail/type_vec2.inl:918:26: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/5/bits/allocator.h:46,
+                 from /usr/include/c++/5/vector:61,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/ext/new_allocator.h:144:5: note: candidate: template<class _Tp> bool __gnu_cxx::operator!=(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator!=(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/include/c++/5/ext/new_allocator.h:144:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const __gnu_cxx::new_allocator<_Tp>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/vector:60,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:841:5: note: candidate: template<class _Iterator, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:841:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/vector:60,
+                 from rawmesh.h:4,
+                 from rawmesh.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:834:5: note: candidate: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator!=(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:834:5: note:   template argument deduction/substitution failed:
+rawmesh.cpp:20:67: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                   ^
+rawmesh.cpp:20:70: error: no match for ‘operator++’ (operand type is ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’)
+     for (std::vector<glm::vec3> itr = uvs.begin(); itr != uvs.end(); ++itr) {
+                                                                      ^
+rawmesh.cpp:21:40: error: no match for ‘operator*’ (operand type is ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’)
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                        ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:428:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(tvec1<T, P> const & v1, tvec1<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:428:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:421:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const T&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(T const & scalar, tvec1<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:421:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:414:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const glm::tvec1<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(tvec1<T, P> const & v, T const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:414:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:710:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:710:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:692:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:692:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:678:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:678:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:664:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x4<T, P>::row_type glm::operator*(const typename glm::tmat4x4<T, P>::col_type&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x4.inl:664:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:616:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x4<T, P>::col_type glm::operator*(const glm::tmat4x4<T, P>&, const typename glm::tmat4x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x4.inl:616:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:606:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const T&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(T const & s, tmat4x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:606:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:596:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat4x4<T, P> const & m, T const  & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:596:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:569:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:569:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:527:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:527:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:502:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x3<T, P>::row_type glm::operator*(const typename glm::tmat4x3<T, P>::col_type&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x3.inl:502:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:490:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x3<T, P>::col_type glm::operator*(const glm::tmat4x3<T, P>&, const typename glm::tmat4x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x3.inl:490:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:480:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const T&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(T const & s, tmat4x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:480:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:470:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat4x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:470:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:508:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:508:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:515:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:515:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:549:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:549:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:537:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:537:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:498:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x2<T, P>::row_type glm::operator*(const typename glm::tmat4x2<T, P>::col_type&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x2<T, P>::row_type operator*(typename tmat4x2<T, P>::col_type const & v, tmat4x2<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat4x2.inl:498:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:490:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x2<T, P>::col_type glm::operator*(const glm::tmat4x2<T, P>&, const typename glm::tmat4x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x2<T, P>::col_type operator*(tmat4x2<T, P> const & m, typename tmat4x2<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat4x2.inl:490:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:480:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const T&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(T const & s, tmat4x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:480:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:470:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat4x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:470:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:541:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:541:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:527:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:527:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:478:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:478:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:465:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x4<T, P>::row_type glm::operator*(const typename glm::tmat3x4<T, P>::col_type&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x4<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat3x4.inl:465:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:451:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x4<T, P>::col_type glm::operator*(const glm::tmat3x4<T, P>&, const typename glm::tmat3x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x4<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat3x4.inl:451:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const T&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(T const & s, tmat3x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:433:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat3x4<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:433:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:573:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:573:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:561:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:561:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:525:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:525:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:516:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x3<T, P>::row_type glm::operator*(const typename glm::tmat3x3<T, P>::col_type&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::row_type operator*(typename tmat3x3<T, P>::col_type const & v, tmat3x3<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat3x3.inl:516:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:507:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x3<T, P>::col_type glm::operator*(const glm::tmat3x3<T, P>&, const typename glm::tmat3x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::col_type operator*(tmat3x3<T, P> const & m, typename tmat3x3<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat3x3.inl:507:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:498:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const T&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(T const & s, tmat3x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:498:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:489:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat3x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:489:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:505:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:505:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:493:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:493:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:468:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:468:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:459:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x2<T, P>::row_type glm::operator*(const typename glm::tmat3x2<T, P>::col_type&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::row_type operator*(typename tmat3x2<T, P>::col_type const & v, tmat3x2<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat3x2.inl:459:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:451:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x2<T, P>::col_type glm::operator*(const glm::tmat3x2<T, P>&, const typename glm::tmat3x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type operator*(tmat3x2<T, P> const & m, typename tmat3x2<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat3x2.inl:451:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const T&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(T const & s, tmat3x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:433:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat3x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:433:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:478:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:478:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:464:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:464:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:423:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:423:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:415:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x4<T, P>::row_type glm::operator*(const typename glm::tmat2x4<T, P>::col_type&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x4<T, P>::row_type operator*(typename tmat2x4<T, P>::col_type const & v, tmat2x4<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat2x4.inl:415:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:405:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x4<T, P>::col_type glm::operator*(const glm::tmat2x4<T, P>&, const typename glm::tmat2x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x4<T, P>::col_type operator*(tmat2x4<T, P> const & m, typename tmat2x4<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat2x4.inl:405:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:397:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const T&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(T const & s, tmat2x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:397:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:389:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat2x4<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:389:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:469:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:469:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:439:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:439:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:427:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:427:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:416:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x3<T, P>::row_type glm::operator*(const typename glm::tmat2x3<T, P>::col_type&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x3.inl:416:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:404:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x3<T, P>::col_type glm::operator*(const glm::tmat2x3<T, P>&, const typename glm::tmat2x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x3.inl:404:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:396:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const T&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(T const & s, tmat2x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:396:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:388:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat2x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:388:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:496:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:496:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:484:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:484:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:474:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:474:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:462:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x2<T, P>::row_type glm::operator*(const typename glm::tmat2x2<T, P>::col_type&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x2.inl:462:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:450:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x2<T, P>::col_type glm::operator*(const glm::tmat2x2<T, P>&, const typename glm::tmat2x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x2.inl:450:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const T&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(T const & s, tmat2x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:434:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat2x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:434:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:747:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, const glm::tvec4<T, P>&)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:747:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/vec4.hpp:35:0,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.hpp:402:28: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec4<T, P>&)
+  GLM_FUNC_DECL tvec4<T, P> operator*(tvec1<T, P> const & scalar, tvec4<T, P> const & v);
+                            ^
+/usr/include/glm/detail/type_vec4.hpp:402:28: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:737:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(T, const glm::tvec4<T, P>&)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(T scalar, tvec4<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:737:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/vec4.hpp:35:0,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.hpp:396:28: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tvec1<T, P> const & scalar);
+                            ^
+/usr/include/glm/detail/type_vec4.hpp:396:28: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:727:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, T)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v, T scalar)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:727:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:694:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v1, tvec3<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:694:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:685:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec1<T, P> const & scalar, tvec3<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:685:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:676:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const T&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(T const & scalar, tvec3<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:676:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:667:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v, tvec1<T, P> const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:667:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:658:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v, T const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:658:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:612:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, tvec2<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:612:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:604:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec1<T, P> const & v1, tvec2<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:604:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:596:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const T&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(T const & scalar, tvec2<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:596:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:588:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, tvec1<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:588:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:580:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, T const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:580:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:41: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                         ^
+rawmesh.cpp:21:51: error: no match for ‘operator*’ (operand type is ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’)
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                   ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:428:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(tvec1<T, P> const & v1, tvec1<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:428:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:421:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const T&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(T const & scalar, tvec1<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:421:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec1.hpp:318:0,
+                 from /usr/include/glm/detail/_vectorize.hpp:35,
+                 from /usr/include/glm/detail/func_trigonometric.inl:33,
+                 from /usr/include/glm/detail/func_trigonometric.hpp:205,
+                 from /usr/include/glm/trigonometric.hpp:35,
+                 from /usr/include/glm/glm.hpp:110,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec1.inl:414:33: note: candidate: template<class T, glm::precision P> glm::tvec1<T, P> glm::operator*(const glm::tvec1<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec1<T, P> operator*(tvec1<T, P> const & v, T const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec1.inl:414:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:710:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:710:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:692:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:692:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:678:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:678:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:664:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x4<T, P>::row_type glm::operator*(const typename glm::tmat4x4<T, P>::col_type&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x4.inl:664:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:616:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x4<T, P>::col_type glm::operator*(const glm::tmat4x4<T, P>&, const typename glm::tmat4x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x4.inl:616:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:606:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const T&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(T const & s, tmat4x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:606:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x4.hpp:243:0,
+                 from /usr/include/glm/mat4x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:108,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x4.inl:596:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat4x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat4x4<T, P> const & m, T const  & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x4.inl:596:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:569:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:569:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:527:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:527:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:502:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x3<T, P>::row_type glm::operator*(const typename glm::tmat4x3<T, P>::col_type&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x3.inl:502:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:490:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x3<T, P>::col_type glm::operator*(const glm::tmat4x3<T, P>&, const typename glm::tmat4x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat4x3.inl:490:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:480:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const T&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(T const & s, tmat4x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:480:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:470:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat4x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:470:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:508:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:508:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x3.hpp:220:0,
+                 from /usr/include/glm/mat4x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:107,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x3.inl:515:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat4x3<T, P>&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat4x3<T, P> const & m1, tmat2x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x3.inl:515:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:549:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat4x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat4x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:549:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:537:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat4x2<T, P> const & m1, tmat3x4<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:537:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:498:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x2<T, P>::row_type glm::operator*(const typename glm::tmat4x2<T, P>::col_type&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat4x2<T, P>::row_type operator*(typename tmat4x2<T, P>::col_type const & v, tmat4x2<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat4x2.inl:498:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:490:54: note: candidate: template<class T, glm::precision P> typename glm::tmat4x2<T, P>::col_type glm::operator*(const glm::tmat4x2<T, P>&, const typename glm::tmat4x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat4x2<T, P>::col_type operator*(tmat4x2<T, P> const & m, typename tmat4x2<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat4x2.inl:490:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:480:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const T&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(T const & s, tmat4x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:480:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat4x2.hpp:220:0,
+                 from /usr/include/glm/mat4x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:106,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat4x2.inl:470:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat4x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat4x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat4x2.inl:470:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat4x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:541:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:541:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:527:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:527:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:478:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:478:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:465:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x4<T, P>::row_type glm::operator*(const typename glm::tmat3x4<T, P>::col_type&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x4<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat3x4.inl:465:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:451:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x4<T, P>::col_type glm::operator*(const glm::tmat3x4<T, P>&, const typename glm::tmat3x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x4<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat3x4.inl:451:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const T&, const glm::tmat3x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(T const & s, tmat3x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x4.hpp:215:0,
+                 from /usr/include/glm/mat3x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:105,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x4.inl:433:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat3x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat3x4<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x4.inl:433:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:573:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:573:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:561:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:561:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:525:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat3x3<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:525:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:516:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x3<T, P>::row_type glm::operator*(const typename glm::tmat3x3<T, P>::col_type&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::row_type operator*(typename tmat3x3<T, P>::col_type const & v, tmat3x3<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat3x3.inl:516:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:507:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x3<T, P>::col_type glm::operator*(const glm::tmat3x3<T, P>&, const typename glm::tmat3x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::col_type operator*(tmat3x3<T, P> const & m, typename tmat3x3<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat3x3.inl:507:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:498:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const T&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(T const & s, tmat3x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:498:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x3.hpp:238:0,
+                 from /usr/include/glm/mat3x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:104,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x3.inl:489:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat3x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat3x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x3.inl:489:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:505:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat4x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat4x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:505:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:493:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat3x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat3x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:493:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:468:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat2x3<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:468:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:459:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x2<T, P>::row_type glm::operator*(const typename glm::tmat3x2<T, P>::col_type&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::row_type operator*(typename tmat3x2<T, P>::col_type const & v, tmat3x2<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat3x2.inl:459:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:451:54: note: candidate: template<class T, glm::precision P> typename glm::tmat3x2<T, P>::col_type glm::operator*(const glm::tmat3x2<T, P>&, const typename glm::tmat3x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type operator*(tmat3x2<T, P> const & m, typename tmat3x2<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat3x2.inl:451:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const T&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(T const & s, tmat3x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat3x2.hpp:215:0,
+                 from /usr/include/glm/mat3x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:103,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat3x2.inl:433:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat3x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat3x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat3x2.inl:433:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat3x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:478:35: note: candidate: template<class T, glm::precision P> glm::tmat3x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:478:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:464:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:464:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:423:35: note: candidate: template<class T, glm::precision P> glm::tmat4x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:423:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:415:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x4<T, P>::row_type glm::operator*(const typename glm::tmat2x4<T, P>::col_type&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x4<T, P>::row_type operator*(typename tmat2x4<T, P>::col_type const & v, tmat2x4<T, P> const & m)
+                                                      ^
+/usr/include/glm/detail/type_mat2x4.inl:415:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:405:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x4<T, P>::col_type glm::operator*(const glm::tmat2x4<T, P>&, const typename glm::tmat2x4<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x4<T, P>::col_type operator*(tmat2x4<T, P> const & m, typename tmat2x4<T, P>::row_type const & v)
+                                                      ^
+/usr/include/glm/detail/type_mat2x4.inl:405:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:397:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const T&, const glm::tmat2x4<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(T const & s, tmat2x4<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:397:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x4.hpp:210:0,
+                 from /usr/include/glm/mat2x4.hpp:35,
+                 from /usr/include/glm/glm.hpp:102,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x4.inl:389:35: note: candidate: template<class T, glm::precision P> glm::tmat2x4<T, P> glm::operator*(const glm::tmat2x4<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x4<T, P> operator*(tmat2x4<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x4.inl:389:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:469:35: note: candidate: template<class T, glm::precision P> glm::tmat4x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:469:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:439:35: note: candidate: template<class T, glm::precision P> glm::tmat3x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:439:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:427:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:427:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:416:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x3<T, P>::row_type glm::operator*(const typename glm::tmat2x3<T, P>::col_type&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x3.inl:416:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:404:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x3<T, P>::col_type glm::operator*(const glm::tmat2x3<T, P>&, const typename glm::tmat2x3<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x3.inl:404:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:396:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const T&, const glm::tmat2x3<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(T const & s, tmat2x3<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:396:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x3.hpp:208:0,
+                 from /usr/include/glm/mat2x3.hpp:35,
+                 from /usr/include/glm/glm.hpp:101,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x3.inl:388:35: note: candidate: template<class T, glm::precision P> glm::tmat2x3<T, P> glm::operator*(const glm::tmat2x3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x3<T, P> operator*(tmat2x3<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x3.inl:388:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:496:35: note: candidate: template<class T, glm::precision P> glm::tmat4x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat4x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat4x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat4x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:496:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:484:35: note: candidate: template<class T, glm::precision P> glm::tmat3x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat3x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat3x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat3x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:484:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:474:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:474:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:462:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x2<T, P>::row_type glm::operator*(const typename glm::tmat2x2<T, P>::col_type&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::row_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x2.inl:462:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:450:54: note: candidate: template<class T, glm::precision P> typename glm::tmat2x2<T, P>::col_type glm::operator*(const glm::tmat2x2<T, P>&, const typename glm::tmat2x2<T, P>::row_type&)
+  GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type operator*
+                                                      ^
+/usr/include/glm/detail/type_mat2x2.inl:450:54: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:442:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const T&, const glm::tmat2x2<T, P>&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(T const & s, tmat2x2<T, P> const & m)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:442:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_mat2x2.hpp:231:0,
+                 from /usr/include/glm/mat2x2.hpp:35,
+                 from /usr/include/glm/glm.hpp:100,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_mat2x2.inl:434:35: note: candidate: template<class T, glm::precision P> glm::tmat2x2<T, P> glm::operator*(const glm::tmat2x2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tmat2x2<T, P> operator*(tmat2x2<T, P> const & m, T const & s)
+                                   ^
+/usr/include/glm/detail/type_mat2x2.inl:434:35: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tmat2x2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:747:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, const glm::tvec4<T, P>&)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:747:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/vec4.hpp:35:0,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.hpp:402:28: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec4<T, P>&)
+  GLM_FUNC_DECL tvec4<T, P> operator*(tvec1<T, P> const & scalar, tvec4<T, P> const & v);
+                            ^
+/usr/include/glm/detail/type_vec4.hpp:402:28: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:737:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(T, const glm::tvec4<T, P>&)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(T scalar, tvec4<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:737:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/vec4.hpp:35:0,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.hpp:396:28: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tvec1<T, P> const & scalar);
+                            ^
+/usr/include/glm/detail/type_vec4.hpp:396:28: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec4.hpp:531:0,
+                 from /usr/include/glm/vec4.hpp:35,
+                 from /usr/include/glm/glm.hpp:99,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec4.inl:727:33: note: candidate: template<class T, glm::precision P> glm::tvec4<T, P> glm::operator*(const glm::tvec4<T, P>&, T)
+  GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v, T scalar)
+                                 ^
+/usr/include/glm/detail/type_vec4.inl:727:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec4<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:694:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v1, tvec3<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:694:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:685:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec1<T, P> const & scalar, tvec3<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:685:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:676:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const T&, const glm::tvec3<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(T const & scalar, tvec3<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:676:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:667:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v, tvec1<T, P> const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:667:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec3.hpp:426:0,
+                 from /usr/include/glm/vec3.hpp:35,
+                 from /usr/include/glm/glm.hpp:98,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec3.inl:658:33: note: candidate: template<class T, glm::precision P> glm::tvec3<T, P> glm::operator*(const glm::tvec3<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v, T const & scalar)
+                                 ^
+/usr/include/glm/detail/type_vec3.inl:658:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec3<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:612:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, tvec2<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:612:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:604:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec1<T, P>&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec1<T, P> const & v1, tvec2<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:604:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec1<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:596:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const T&, const glm::tvec2<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(T const & scalar, tvec2<T, P> const & v)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:596:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   candidate expects 2 arguments, 1 provided
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:588:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const glm::tvec1<T, P>&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, tvec1<T, P> const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:588:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+In file included from /usr/include/glm/detail/type_vec2.hpp:407:0,
+                 from /usr/include/glm/vec2.hpp:35,
+                 from /usr/include/glm/glm.hpp:97,
+                 from rawmesh.h:3,
+                 from rawmesh.cpp:1:
+/usr/include/glm/detail/type_vec2.inl:580:33: note: candidate: template<class T, glm::precision P> glm::tvec2<T, P> glm::operator*(const glm::tvec2<T, P>&, const T&)
+  GLM_FUNC_QUALIFIER tvec2<T, P> operator*(tvec2<T, P> const & v1, T const & v2)
+                                 ^
+/usr/include/glm/detail/type_vec2.inl:580:33: note:   template argument deduction/substitution failed:
+rawmesh.cpp:21:52: note:   ‘std::vector<glm::tvec3<float, (glm::precision)0u> >’ is not derived from ‘const glm::tvec2<T, P>’
+         this->uvs.push_back(glm::vec2((*itr)[0], (*itr)[1]));
+                                                    ^
+meshloader.cpp: In member function ‘RawMesh* OBJMeshLoader::ParseToRawMesh() const’:
+meshloader.cpp:126:55: error: conversion from ‘std::vector<OBJMeshLoader::Face>::const_iterator {aka __gnu_cxx::__normal_iterator<const OBJMeshLoader::Face*, std::vector<OBJMeshLoader::Face> >}’ to non-scalar type ‘std::vector<OBJMeshLoader::Face>::iterator {aka __gnu_cxx::__normal_iterator<OBJMeshLoader::Face*, std::vector<OBJMeshLoader::Face> >}’ requested
+     for (std::vector<Face>::iterator itr = faces.begin(); itr != faces.end(); ++itr) {
+                                                       ^
+meshloader.cpp:127:51: error: ‘class std::vector<OBJMeshLoader::VertexIndices>’ has no member named ‘position_idx’
+         out_mesh->addIndexSet(itr->vertex_indices.position_idx, 0, itr->vertex_indices.normal_idx, itr->vertex_indices.uv_idx);
+                                                   ^
+meshloader.cpp:127:88: error: ‘class std::vector<OBJMeshLoader::VertexIndices>’ has no member named ‘normal_idx’
+         out_mesh->addIndexSet(itr->vertex_indices.position_idx, 0, itr->vertex_indices.normal_idx, itr->vertex_indices.uv_idx);
+                                                                                        ^
+meshloader.cpp:127:120: error: ‘class std::vector<OBJMeshLoader::VertexIndices>’ has no member named ‘uv_idx’
+         out_mesh->addIndexSet(itr->vertex_indices.position_idx, 0, itr->vertex_indices.normal_idx, itr->vertex_indices.uv_idx);
+                                                                                                                        ^
+Makefile:12: recipe for target 'teapot' failed
+make: *** [teapot] Error 1

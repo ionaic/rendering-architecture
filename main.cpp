@@ -41,7 +41,18 @@ int main(int argc, char **argv) {
     glfwSetCursorPosCallback(base.window, glfw_mouse_position_cb);
 
     // load the mesh
-    OBJMeshLoader mesh_loader(std::string(argv[1]));
+    OBJMeshLoader mesh_loader;
+    mesh_loader.OpenFile(std::string(argv[1]));
+    mesh_loader.LoadLines();
+    mesh_loader.CloseFile();
+
+    // create a RawMesh (poly soup) from the MeshLoader
+    RawMesh *teapot = mesh_loader.ParseToRawMesh();
+
+#ifdef DEBUG
+    // debug output the mesh
+    std::cout << "--------------------Mesh-------------------" << std::endl << teapot->toString() << std::endl << "-------------------------------------------";
+#endif
     
     // run the main application
     base.Run();

@@ -4,7 +4,6 @@
 #include <string>
 #include "glinc.h"
 #include "errors.h"
-#include "meshloader.h"
 
 class BaseApp {
     public:
