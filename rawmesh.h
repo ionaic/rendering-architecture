@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 
+//class RawMesh : Mesh {
 class RawMesh {
     public: 
         RawMesh();

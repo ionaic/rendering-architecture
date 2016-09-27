@@ -37,42 +37,6 @@ void checkGLError(const char *msg, const char *fname, const int line) {
 #endif
 }
 
-void checkShader(GLuint shader, const char *fname) {
-	GLint status, len;
-    GLchar log[1024];
-
-    // retrieve compile status
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-
-    // get the log
-    glGetShaderInfoLog(shader, sizeof(log), &len, log);
-
-    // print it out
-	if (status) {
-		std::cout << "OpenGL Shader Compile OK:\n" << log << std::endl;
-	}
-    else {
-        std::cerr << "GLSL Compilation Error in " << std::string(fname) << ": " << std::endl << std::string(log) << std::endl;
-	}
-}
-
-void checkProgram(const GLuint id, const GLuint fragment, const GLuint vertex) {
-	glValidateProgram(id);
-    checkGLError("Error validating shader program.", __FILE__, __LINE__);
-
-	GLboolean isProgram = glIsProgram(id);
-    std::cout << "    Program is " << (isProgram ? " " : "not ") << "a program" << std::endl;
-
-	char buffer[2048];
-	GLsizei length;
-	glGetProgramInfoLog(id, 2048, &length, buffer);
-    std::cout << "    Program Info Log (size " << length << "): " << buffer << std::endl;
-	glGetShaderInfoLog(fragment, 2048, &length, buffer);
-    std::cout << "    Fragment Shader Log (size " << length << "): " << buffer << std::endl;
-	glGetShaderInfoLog(vertex, 2048, &length, buffer);
-    std::cout << "    Vertex Shader Log (size " << length << "): " << buffer << std::endl;
-}
-
 void errorMsg(const char *msg, const char *fname, const int line) {
     std::cerr << fname << ":" << line << " " << msg << std::endl;
 }

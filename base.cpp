@@ -30,7 +30,7 @@ int BaseApp::Initialize() {
         return 2;
     }
     glfwMakeContextCurrent(this->window);
-    checkGLError("After making window context.", "BaseApp Initialize", __LINE__);
+    checkGLError("After making window context.", __FILE__, __LINE__);
 
     // initializing glew
     if (glewInit() != GLEW_OK) {
@@ -38,12 +38,12 @@ int BaseApp::Initialize() {
         glfwTerminate();
         return 3;
     }
-    checkGLError("After glew init.", "BaseApp Initialize", __LINE__);
+    checkGLError("After glew init.", __FILE__, __LINE__);
 
     // clear screen to black
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-    checkGLError("Finished setup.", "BaseApp Initialize", __LINE__);
+    checkGLError("Finished setup.", __FILE__, __LINE__);
 
     return 0;
 }

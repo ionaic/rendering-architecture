@@ -1,5 +1,5 @@
 CC=g++
-SOURCE=rawmesh.cpp meshloader.cpp errors.cpp base.cpp main.cpp # source files
+SOURCE=mesh.cpp scene.cpp shader.cpp camera.cpp rawmesh.cpp meshloader.cpp errors.cpp base.cpp main.cpp # source files
 HEADER=# header files
 LIBRARIES=glfw3 glew
 LFlAGS=-lglm
