@@ -12,21 +12,26 @@ class VertexAttribute {
         std::string name;
 
         void FindInShader(GLuint shader);
+        void BindLocation(GLuint program);
 };
 
 class ShaderUniform {
-    GLuint location;
-    std::string name;
+    public:
+        GLuint location;
+        std::string name;
 };
 
 class Shader {
     public:
         static void CheckShader(GLuint shader, char *fname = NULL);
-        static void CheckProgram(const GLuint program, const GLuint frag, const GLuint vert);
+        static void CheckProgram(const GLuint program, const GLuint fragment, const GLuint vertex);
 
         Shader();
+        ~Shader();
 
+        std::string VertexSource();
         void VertexSource(std::string src);
+        std::string FragmentSource();
         void FragmentSource(std::string src);
         void ReadVertexFromFile(std::string fname);
         void ReadFragmentFromFile(std::string fname);
@@ -34,11 +39,10 @@ class Shader {
         void UseShader();
         void AddAttribute(std::string name);
 
+        // TODO geometry, tesselation ctrl, tesselation eval
         GLuint program;
         GLuint vertex;
         GLuint fragment;
-        std::string vertex_src;
-        std::string fragment_src;
 
         // MVP is separate as it's needed by everything
         ShaderUniform model, view, projection;
@@ -54,5 +58,7 @@ class Shader {
         // multiple shader passes
 
     private:
-        void ReadFile(std::string fname, char target);
+        std::string ReadFile(std::string fname);
+        std::string vertex_src;
+        std::string fragment_src;
 };
