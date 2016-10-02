@@ -42,3 +42,6 @@ glm::mat4 Transform::GetMatrix() const {
 
     return out;
 }
+
+SceneObject::SceneObject() {}
+SceneObject::~SceneObject() {}

@@ -46,12 +46,26 @@ int main(int argc, char **argv) {
     mesh_loader.LoadLines();
     mesh_loader.CloseFile();
 
+    // make a scene object for the teapot
+    SceneObject teapot;
+
     // create a RawMesh (poly soup) from the MeshLoader
-    RawMesh *teapot = mesh_loader.ParseToRawMesh();
+    teapot.mesh = mesh_loader.ParseToRawMesh();
+    teapot.mesh->Initialize();
+
+    // create a shader from the basic.vert and basic.frag files
+    teapot.shader.ReadVertexFromFile("basic.vert");
+    teapot.shader.ReadFragmentFromFile("basic.frag");
+    teapot.shader.Initialize();
+
+    // setup the mesh buffers with the shader
+    teapot->SetupBuffers(teapot.shader);
 
 #ifdef DEBUG
     // debug output the mesh
-    std::cout << "--------------------Mesh-------------------" << std::endl << teapot->toString() << std::endl << "-------------------------------------------";
+    std::cout << "--------------------Mesh-------------------" << std::endl 
+        << teapot->toString() << std::endl 
+        << "-------------------------------------------";
 #endif
     
     // run the main application

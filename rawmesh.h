@@ -5,8 +5,8 @@
 #include <string>
 #include <sstream>
 
-//class RawMesh : Mesh {
-class RawMesh {
+class RawMesh : Mesh {
+//class RawMesh {
     public: 
         RawMesh();
         ~RawMesh();
@@ -36,17 +36,4 @@ class RawMesh {
             unsigned int B;
             unsigned int C;
         };
-        struct IndexSet {
-            unsigned int position;
-            unsigned int color;
-            unsigned int normal;
-            unsigned int uv;
-        };
-
-        std::vector<glm::vec4> positions;
-        std::vector<glm::vec4> colors;
-        std::vector<glm::vec3> normals;
-        std::vector<glm::vec2> uvs;
-        
-        std::vector<IndexSet> indices;
 };
