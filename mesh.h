@@ -1,6 +1,7 @@
 #pragma once
-#include "camera.h"
 #include "glinc.h"
+
+class Camera;
 
 // abstract mesh type
 class Mesh {
