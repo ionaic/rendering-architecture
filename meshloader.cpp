@@ -14,6 +14,71 @@ void OBJMeshLoader::OpenFile(std::string filename) {
     this->_file.open(this->_filename.c_str());
 }
 
+void OBJMeshLoader::CombineIndices() {
+    for (std::vector<std::vector<IndexSet> >::iterator idxs = multi_faces.begin(); idxs != multi_faces.end(); ++idxs) {
+        // TODO currently ignoring when the face is non-triangular
+        if (idxs->size() < 3) {
+            continue;
+        }
+
+        Vertex a, b, c;
+        a.position = this->vertex_positions[(*idxs)[0].position_idx];
+        b.position = this->vertex_positions[(*idxs)[1].position_idx];
+        c.position = this->vertex_positions[(*idxs)[2].position_idx];
+
+        if (this->vertex_normals[(*idxs)[0].normal_idx] >= 0) {
+            a.normal = this->vertex_normals[(*idxs)[0].normal_idx];
+        }
+        else {
+            a.normal = glm::vec3(0);
+        }
+        if (this->vertex_normals[(*idxs)[1].normal_idx] >= 0) {
+            b.normal = this->vertex_normals[(*idxs)[1].normal_idx];
+        }
+        else {
+            b.normal = glm::vec3(0);
+        }
+        if (this->vertex_normals[(*idxs)[2].normal_idx] >= 0) {
+            c.normal = this->vertex_normals[(*idxs)[2].normal_idx];
+        }
+        else {
+            c.normal = glm::vec3(0);
+        }
+
+        if (this->vertex_uvs[(*idxs)[0].uv_idx] >= 0) {
+            a.uv = this->vertex_uvs[(*idxs)[0].uv_idx];
+        }
+        else {
+            a.uv = glm::vec2(0);
+        }
+        if (this->vertex_uvs[(*idxs)[1].uv_idx] >= 0) {
+            b.uv = this->vertex_uvs[(*idxs)[1].uv_idx];
+        }
+        else {
+            b.uv = glm::vec2(0);
+        }
+        if (this->vertex_uvs[(*idxs)[2].uv_idx] >= 0) {
+            c.uv = this->vertex_uvs[(*idxs)[2].uv_idx];
+        }
+        else {
+            c.uv = glm::vec2(0);
+        }
+
+        a.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+        b.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+        c.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+        this->vertices.push_back(a, b, c);
+        
+        Face out;
+        out.a = this->vertices.size() - 3;
+        out.b = this->vertices.size() - 2;
+        out.c = this->vertices.size() - 1;
+
+        this->faces.push_back(out);
+    }
+}
+
 void OBJMeshLoader::LoadLines() {
     std::string line;
     
@@ -47,7 +112,7 @@ void OBJMeshLoader::LoadLines() {
         }
         else if (entry_type.compare("f") == 0) {
             std::string tmp;
-            Face out;
+            std::vector<IndexSet> out;
             while (str >> tmp) {
                 std::stringstream line_str(tmp);
                 std::string tmp_pos;
@@ -82,11 +147,13 @@ void OBJMeshLoader::LoadLines() {
                     vert_out.normal_idx = -1;
                 }
 
-                out.indices.push_back(vert_out);
+                out.push_back(vert_out);
             }
             this->faces.push_back(out);
         }
     }
+
+    this->CombineIndices();
 
 #ifdef DEBUG
     // debugging print statements
@@ -98,13 +165,13 @@ void OBJMeshLoader::LoadLines() {
     for (unsigned int idx = 0; idx < this->vertex_normals.size(); ++idx) {
         std::cout << "\t(" << vertex_normals[idx][0] << ", " << vertex_normals[idx][1] << ", " << vertex_normals[idx][2] << " )" << std::endl;
     }
-    std::cout << "Faces (" << this->faces.size() << "): " << std::endl;
-    for (unsigned int idx = 0; idx < this->faces.size(); ++idx) {
+    std::cout << "Faces (" << this->multi_faces.size() << "): " << std::endl;
+    for (unsigned int idx = 0; idx < this->multi_faces.size(); ++idx) {
         std::cout << "\t(";
-        for (unsigned int idx2 = 0; idx2 < faces[idx].indices.size(); ++idx2) {
-            std::cout << faces[idx].indices[idx2].position_idx << "/";
-            std::cout << faces[idx].indices[idx2].uv_idx << "/";
-            std::cout << faces[idx].indices[idx2].normal_idx << " ";
+        for (unsigned int idx2 = 0; idx2 < multi_faces[idx].size(); ++idx2) {
+            std::cout << multi_faces[idx][idx2].position_idx << "/";
+            std::cout << multi_faces[idx][idx2].uv_idx << "/";
+            std::cout << multi_faces[idx][idx2].normal_idx << " ";
         }
         std::cout << ")" << std::endl;
     }

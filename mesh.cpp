@@ -2,7 +2,7 @@
 
 Mesh::Mesh() {}
 Mesh::~Mesh() {
-    glDeleteBuffers(4, &(this->buffers.vbo));
+    glDeleteBuffers(4, &(this->buffers.vbo[0]));
     glDeleteBuffers(1, &(this->buffers.ibo)) ;
 
     glDeleteVertexArrays(1, &(this->buffers.vao));

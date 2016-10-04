@@ -1,6 +1,7 @@
 #pragma once
 #include "glinc.h"
 #include "shader.h"
+#include <vector>
 
 class Camera;
 
