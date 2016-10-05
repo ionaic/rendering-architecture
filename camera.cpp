@@ -6,5 +6,8 @@ glm::mat4 Camera::GetViewMatrix() {
 }
 
 void Camera::Draw(const SceneObject *scene) {
+    scene->mesh->UseMesh();
+    scene->shader.UseShader();
     
+    glDrawElements(GL_TRIANGLES, scene->mesh->indices);
 }

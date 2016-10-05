@@ -40,20 +40,9 @@ class OBJMeshLoader {
             int uv_idx;
             int normal_idx;
         };
-        struct Vertex { 
-            glm::vec4 position;
-            glm::vec4 color;
-            glm::vec3 normal;
-            glm::vec2 uv;
-        };
-        struct Face {
-            unsigned int a;
-            unsigned int b;
-            unsigned int c;
-        };
         // unfiltered vertices, may be duplicates
         std::vector<glm::vec4> vertex_positions;
-        std::vector<glm::vec3> vertex_uvs;
+        std::vector<glm::vec2> vertex_uvs;
         std::vector<glm::vec3> vertex_normals;
         // TODO ignoring parameter space coordinates for now
         // TODO Assuming triangular faces

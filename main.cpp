@@ -1,5 +1,6 @@
 #include "base.h"
 #include "meshloader.h"
+#include "scene.h"
 
 
 void glfw_error_cb(int error, const char* description) {
@@ -59,7 +60,7 @@ int main(int argc, char **argv) {
     teapot.shader.Initialize();
 
     // setup the mesh buffers with the shader
-    teapot->SetupBuffers(teapot.shader);
+    teapot.mesh->SetupBuffers(teapot.shader);
 
 #ifdef DEBUG
     // debug output the mesh

@@ -22,6 +22,22 @@ void RawMesh::addUvs(const std::vector<glm::vec3> &uvs) {
     }
 }
 
+void RawMesh::addPosition(const glm::vec4 &pos) {
+    this->positions.push_back(pos);
+}
+void RawMesh::addColor(const glm::vec4 &col) {
+    this->colors.push_back(col);
+}
+void RawMesh::addNormal(const glm::vec3 &norm) {
+    this->normals.push_back(norm);
+}
+void RawMesh::addUv(const glm::vec2 &uv) {
+    this->uvs.push_back(uv);
+}
+void RawMesh::addUv(const glm::vec3 &uv) {
+    this->uvs.push_back(glm::vec2(uv[0], uv[1]));
+}
+
 void RawMesh::addIndexSet(const unsigned int position, const unsigned int color, const unsigned int normal, const unsigned int uv) {
     IndexSet tmp;
     tmp.position = position;

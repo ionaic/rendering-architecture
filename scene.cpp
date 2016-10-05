@@ -3,6 +3,7 @@
 #include <iterator>
 
 Transform::Transform() {}
+Transform::~Transform() {}
 
 void Transform::Translate(glm::vec3 move) {
     this->position = glm::vec4(move.x, move.y, move.z, 1.0f);

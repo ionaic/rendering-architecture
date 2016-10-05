@@ -26,38 +26,38 @@ void OBJMeshLoader::CombineIndices() {
         b.position = this->vertex_positions[(*idxs)[1].position_idx];
         c.position = this->vertex_positions[(*idxs)[2].position_idx];
 
-        if (this->vertex_normals[(*idxs)[0].normal_idx] >= 0) {
+        if ((*idxs)[0].normal_idx >= 0) {
             a.normal = this->vertex_normals[(*idxs)[0].normal_idx];
         }
         else {
             a.normal = glm::vec3(0);
         }
-        if (this->vertex_normals[(*idxs)[1].normal_idx] >= 0) {
+        if ((*idxs)[1].normal_idx >= 0) {
             b.normal = this->vertex_normals[(*idxs)[1].normal_idx];
         }
         else {
             b.normal = glm::vec3(0);
         }
-        if (this->vertex_normals[(*idxs)[2].normal_idx] >= 0) {
+        if ((*idxs)[2].normal_idx >= 0) {
             c.normal = this->vertex_normals[(*idxs)[2].normal_idx];
         }
         else {
             c.normal = glm::vec3(0);
         }
 
-        if (this->vertex_uvs[(*idxs)[0].uv_idx] >= 0) {
+        if ((*idxs)[0].uv_idx >= 0) {
             a.uv = this->vertex_uvs[(*idxs)[0].uv_idx];
         }
         else {
             a.uv = glm::vec2(0);
         }
-        if (this->vertex_uvs[(*idxs)[1].uv_idx] >= 0) {
+        if ((*idxs)[1].uv_idx >= 0) {
             b.uv = this->vertex_uvs[(*idxs)[1].uv_idx];
         }
         else {
             b.uv = glm::vec2(0);
         }
-        if (this->vertex_uvs[(*idxs)[2].uv_idx] >= 0) {
+        if ((*idxs)[2].uv_idx >= 0) {
             c.uv = this->vertex_uvs[(*idxs)[2].uv_idx];
         }
         else {
@@ -68,7 +68,9 @@ void OBJMeshLoader::CombineIndices() {
         b.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
         c.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
 
-        this->vertices.push_back(a, b, c);
+        this->vertices.push_back(a);
+        this->vertices.push_back(b);
+        this->vertices.push_back(c);
         
         Face out;
         out.a = this->vertices.size() - 3;
@@ -110,6 +112,17 @@ void OBJMeshLoader::LoadLines() {
                 this->vertex_normals.push_back(glm::vec3(tmp[0], tmp[1], tmp[2]));
             }
         }
+        else if (entry_type.compare("vt") == 0) {
+            // TODO handles 2d textures only
+            std::vector<float> tmp;
+            float value;
+            while (str >> value) {
+                tmp.push_back(value);
+            }
+            if (tmp.size() > 1) {
+                this->vertex_uvs.push_back(glm::vec2(tmp[0], tmp[1]));
+            }
+        }
         else if (entry_type.compare("f") == 0) {
             std::string tmp;
             std::vector<IndexSet> out;
@@ -149,7 +162,7 @@ void OBJMeshLoader::LoadLines() {
 
                 out.push_back(vert_out);
             }
-            this->faces.push_back(out);
+            this->multi_faces.push_back(out);
         }
     }
 
@@ -188,10 +201,10 @@ RawMesh* OBJMeshLoader::ParseToRawMesh() const {
     out_mesh->addPositions(this->vertex_positions);
     out_mesh->addNormals(this->vertex_normals);
     out_mesh->addUvs(this->vertex_uvs);
-    out_mesh->colors.push_back(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
+    out_mesh->addColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
 
-    for (std::vector<Face>::const_iterator face_itr = faces.begin(); face_itr != faces.end(); ++face_itr) {
-        for (std::vector<IndexSet>::const_iterator idx_itr = face_itr->indices.begin(); idx_itr != face_itr->indices.end(); ++idx_itr) {
+    for (std::vector<std::vector<IndexSet> >::const_iterator face_itr = multi_faces.begin(); face_itr != multi_faces.end(); ++face_itr) {
+        for (std::vector<IndexSet>::const_iterator idx_itr = face_itr->begin(); idx_itr != face_itr->end(); ++idx_itr) {
             out_mesh->addIndexSet(idx_itr->position_idx, 0, idx_itr->normal_idx, idx_itr->uv_idx);
         }
     }
