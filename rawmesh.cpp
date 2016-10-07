@@ -38,13 +38,33 @@ void RawMesh::addUv(const glm::vec3 &uv) {
     this->uvs.push_back(glm::vec2(uv[0], uv[1]));
 }
 
-void RawMesh::addIndexSet(const unsigned int position, const unsigned int color, const unsigned int normal, const unsigned int uv) {
-    IndexSet tmp;
-    tmp.position = position;
-    tmp.color = color;
-    tmp.normal = normal;
-    tmp.uv = uv;
-    indices.push_back(tmp);
+//void RawMesh::addIndexSet(const unsigned int position, const unsigned int color, const unsigned int normal, const unsigned int uv) {
+//    IndexSet tmp;
+//    tmp.position = position;
+//    tmp.color = color;
+//    tmp.normal = normal;
+//    tmp.uv = uv;
+//    indices.push_back(tmp);
+//}
+void RawMesh::addVertex(const Vertex &v) {
+
+}
+void RawMesh::addVertices(const std::vector<Vertex> &vertices) {
+
+}
+
+void RawMesh::addFace(const Face &f) {
+    this->indices.push_back(f);
+}
+void RawMesh::addFace(const unsigned int &a, const unsigned int &b, const unsigned int &c) {
+    Face f;
+    f.a = a;
+    f.b = b;
+    f.c = c;
+    this->addFace(f);
+}
+void RawMesh::addFaces(const std::vector<Face> &faces) {
+    this->indices.insert(this->indices.end(), faces.begin(), faces.end());
 }
 
 std::string RawMesh::toString() const {

@@ -22,7 +22,7 @@ class OBJMeshLoader {
         void OpenFile(std::string filename);
         void LoadLines();
         void CloseFile();
-        RawMesh* ParseToRawMesh() const;
+        RawMesh* ParseToRawMesh(bool singlebuffer = true) const;
         //HalfEdge* ParseToHalfEdge();
 
     private:

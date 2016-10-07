@@ -2,14 +2,15 @@
 
 #include <string>
 #include <fstream>
+#include <streambuf>
 #include <list>
 #include "glinc.h"
 #include "errors.h"
 
 class VertexAttribute {
     public:
-        GLuint location;
-        std::string name;
+        GLuint location = 0;
+        std::string name = "";
 
         void FindInShader(GLuint shader);
         void BindLocation(GLuint program);
@@ -17,14 +18,15 @@ class VertexAttribute {
 
 class ShaderUniform {
     public:
-        GLuint location;
-        std::string name;
+        GLuint location = 0;
+        std::string name = "";
 };
 
 class Shader {
     public:
-        static void CheckShader(GLuint shader, char *fname = NULL);
-        static void CheckProgram(const GLuint program, const GLuint fragment, const GLuint vertex);
+        static bool CheckShader(GLuint shader);
+        static bool CheckShader(GLuint shader, std::string fname);
+        static bool CheckProgram(const GLuint program, const GLuint fragment, const GLuint vertex);
 
         Shader();
         ~Shader();
@@ -35,8 +37,8 @@ class Shader {
         void FragmentSource(std::string src);
         void ReadVertexFromFile(std::string fname);
         void ReadFragmentFromFile(std::string fname);
-        void Initialize(bool print_log = true);
-        void UseShader();
+        bool Initialize(bool print_log = true);
+        void UseShader() const;
         void AddAttribute(std::string name);
 
         // TODO geometry, tesselation ctrl, tesselation eval

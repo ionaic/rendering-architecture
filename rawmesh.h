@@ -25,7 +25,11 @@ class RawMesh : public Mesh {
         void addUv(const glm::vec2 &uv);
         void addUv(const glm::vec3 &uv);
 
-        void addIndexSet(const unsigned int positions, const unsigned int colors, const unsigned int normals, const unsigned int uvs);
+        void addVertex(const Vertex &v);
+        void addVertices(const std::vector<Vertex> &vertices);
+        void addFace(const unsigned int &a, const unsigned int &b, const unsigned int &c);
+        void addFace(const Face &f);
+        void addFaces(const std::vector<Face> &faces);
 
         // for debugging/utility purposes
         std::string toString() const;

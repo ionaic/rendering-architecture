@@ -1,6 +1,10 @@
 #include "shader.h"
 
-void Shader::CheckShader(GLuint shader, char *fname) {
+bool Shader::CheckShader(GLuint shader) {
+    return Shader::CheckShader(shader, "");
+}
+
+bool Shader::CheckShader(GLuint shader, std::string fname) {
     GLint status, len;
     GLchar log[1024];
 
@@ -10,15 +14,19 @@ void Shader::CheckShader(GLuint shader, char *fname) {
     // get the log
     glGetShaderInfoLog(shader, sizeof(log), &len, log);
 
+    std::string logstr(log);
+
     // print it out
     if (status) {
-        std::cout << "OpenGL Shader Compile OK:\n" << log << std::endl;
+        std::cout << "OpenGL Shader Compile OK:\n" << logstr << std::endl;
+        return true;
     }
     else {
-        std::cerr << "GLSL Compilation Error in " << std::string(fname) << ": " << std::endl << std::string(log) << std::endl;
+        std::cerr << "GLSL Compilation Error in " << fname << ": " << std::endl << logstr << std::endl;
+        return false;
     }
 }
-void Shader::CheckProgram(const GLuint program, const GLuint fragment, const GLuint vertex) {
+bool Shader::CheckProgram(const GLuint program, const GLuint fragment, const GLuint vertex) {
 	GLint linkStatus;
 	glGetProgramiv(program, GL_LINK_STATUS, &linkStatus);
 
@@ -44,6 +52,7 @@ void Shader::CheckProgram(const GLuint program, const GLuint fragment, const GLu
     std::cout << "\tFragment Shader Log (size " << length << "): " << buffer << std::endl;
     glGetShaderInfoLog(vertex, 2048, &length, buffer);
     std::cout << "\tVertex Shader Log (size " << length << "): " << buffer << std::endl;
+    return linkStatus && isProgram;
 }
 
 Shader::Shader() {
@@ -74,6 +83,7 @@ std::string Shader::VertexSource() {
     return this->vertex_src;
 }
 void Shader::VertexSource(std::string src) {
+    std::cout << "Vertex source: " << std::endl << src << std::endl << "----------------------" << std::endl;
     this->vertex_src = src;
 }
 
@@ -81,6 +91,7 @@ std::string Shader::FragmentSource() {
     return this->fragment_src;
 }
 void Shader::FragmentSource(std::string src) {
+    std::cout << "Fragment source: " << std::endl << src << std::endl << "----------------------" << std::endl;
     this->fragment_src = src;
 }
 
@@ -94,23 +105,20 @@ void Shader::ReadFragmentFromFile(std::string fname) {
 
 std::string Shader::ReadFile(std::string fname) {
     std::ifstream file(fname, std::ios_base::in);
+    std::string src;
 
-    file.seekg(0, file.end);
-    int length = file.tellg();
-    file.seekg(0, file.beg);
+    file.seekg(0, std::ios::end);
+    src.reserve(file.tellg());
+    file.seekg(0, std::ios::beg);
 
-    char *buff = new char[length];
-    file.read(buff, length);
-
-    std::string src(buff);
-
-    delete [] buff;
+    src.assign((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 
     return src;
 }
 
-void Shader::Initialize(bool print_log) {
+bool Shader::Initialize(bool print_log) {
     int src_len = 0;
+    bool err = false;
 
     // set up vertex shader
     this->vertex = glCreateShader(GL_VERTEX_SHADER);
@@ -121,7 +129,7 @@ void Shader::Initialize(bool print_log) {
     checkGLError("Setting vertex shader source", __FILE__, __LINE__);
     glCompileShader(this->vertex);
     checkGLError("Compiling vertex shader", __FILE__, __LINE__);
-    Shader::CheckShader(this->vertex);
+    err = err || Shader::CheckShader(this->vertex);
 
     // set up fragment shader
     this->fragment = glCreateShader(GL_FRAGMENT_SHADER);
@@ -132,7 +140,7 @@ void Shader::Initialize(bool print_log) {
     checkGLError("Setting fragment shader source", __FILE__, __LINE__);
     glCompileShader(this->fragment);
     checkGLError("Compiling fragment shader", __FILE__, __LINE__);
-    Shader::CheckShader(this->fragment);
+    err = err || Shader::CheckShader(this->fragment);
 
     this->program = glCreateProgram();
     checkGLError("Creating shader program", __FILE__, __LINE__);
@@ -143,10 +151,20 @@ void Shader::Initialize(bool print_log) {
 
     glLinkProgram(this->program);
     checkGLError("Linking shader program", __FILE__, __LINE__);
-    Shader::CheckProgram(this->program, this->fragment, this->vertex);
+    err = err || Shader::CheckProgram(this->program, this->fragment, this->vertex);
+
+    // if the program failed to initialize this will segfault
+    if (!err) {
+        this->position.FindInShader(this->program);
+        this->color.FindInShader(this->program);
+        this->normal.FindInShader(this->program);
+        this->uv.FindInShader(this->program);
+    }
+    
+    return err;
 }
 
-void Shader::UseShader() {
+void Shader::UseShader() const {
     glUseProgram(this->program);
 }
 
@@ -159,7 +177,8 @@ void Shader::AddAttribute(std::string name) {
 
 void VertexAttribute::FindInShader(GLuint shader) {
     this->location = glGetAttribLocation(shader, this->name.c_str());
-    checkGLError("Getting attribute location", __FILE__, __LINE__);
+    std::string msg = "Getting attribute location " + this->name;
+    checkGLError(msg.c_str(), __FILE__, __LINE__);
 }
 
 void VertexAttribute::BindLocation(GLuint program) {

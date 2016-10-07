@@ -33,6 +33,7 @@ int BaseApp::Initialize() {
     checkGLError("After making window context.", __FILE__, __LINE__);
 
     // initializing glew
+    glewExperimental = GL_TRUE;
     if (glewInit() != GLEW_OK) {
         std::cerr << "Failed to initialize glew." << std::endl;
         glfwTerminate();

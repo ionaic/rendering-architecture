@@ -7,7 +7,7 @@ CFLAGS=-std=c++11
 TARGET=teapot # output executable
 TEAPOT_FILE=wt_teapot.obj # teapot obj file
 
-all: $(TARGET)
+all: clean $(TARGET)
 
 $(TARGET):
 	$(CC) $(CFLAGS) `pkg-config --cflags $(LIBRARIES)` -o $(TARGET) $(SOURCE) $(LFLAGS) `pkg-config --static --libs $(LIBRARIES)`
@@ -15,10 +15,10 @@ $(TARGET):
 .DBG:
 	$(eval CFLAGS+=-g)
 
-debug: .DBG $(TARGET)
+debug: clean .DBG $(TARGET)
 
 clean:
-	rm $(TARGET)
+	rm -f $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET) $(TEAPOT_FILE)

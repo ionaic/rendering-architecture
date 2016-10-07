@@ -9,5 +9,5 @@ void Camera::Draw(const SceneObject *scene) {
     scene->mesh->UseMesh();
     scene->shader.UseShader();
     
-    glDrawElements(GL_TRIANGLES, scene->mesh->indices);
+    glDrawElements(GL_TRIANGLES, scene->mesh->indices.size(), GL_UNSIGNED_INT, 0);
 }

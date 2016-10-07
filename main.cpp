@@ -24,6 +24,7 @@ void glfw_mouse_position_cb(GLFWwindow *window, double xpos, double ypos) {
 int main(int argc, char **argv) {
     if (argc < 2) {
         std::cerr << "Must provide filename of Utah Teapot file" << std::endl;
+        return -1;
     }
     BaseApp base;
     

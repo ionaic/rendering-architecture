@@ -195,18 +195,18 @@ void OBJMeshLoader::CloseFile() {
     this->_file.close();
 }
 
-RawMesh* OBJMeshLoader::ParseToRawMesh() const {
+RawMesh* OBJMeshLoader::ParseToRawMesh(bool singlebuffer) const {
     RawMesh *out_mesh = new RawMesh();
     
-    out_mesh->addPositions(this->vertex_positions);
-    out_mesh->addNormals(this->vertex_normals);
-    out_mesh->addUvs(this->vertex_uvs);
-    out_mesh->addColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
-
-    for (std::vector<std::vector<IndexSet> >::const_iterator face_itr = multi_faces.begin(); face_itr != multi_faces.end(); ++face_itr) {
-        for (std::vector<IndexSet>::const_iterator idx_itr = face_itr->begin(); idx_itr != face_itr->end(); ++idx_itr) {
-            out_mesh->addIndexSet(idx_itr->position_idx, 0, idx_itr->normal_idx, idx_itr->uv_idx);
-        }
+    if (!singlebuffer) { 
+        out_mesh->addPositions(this->vertex_positions);
+        out_mesh->addNormals(this->vertex_normals);
+        out_mesh->addUvs(this->vertex_uvs);
+        out_mesh->addColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
+    }
+    else {
+        out_mesh->addVertices(this->vertices);
+        out_mesh->addFaces(this->faces);
     }
 
     return out_mesh;
