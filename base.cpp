@@ -1,15 +1,21 @@
 #include "base.h"
 
 BaseApp::BaseApp() {
-    BaseApp(640, 480);
+    BaseApp(640, 480, "Teapot Explosion");
 }
 
-BaseApp::BaseApp(unsigned int window_width, unsigned int window_height) {
-
+BaseApp::BaseApp(unsigned int window_width, unsigned int window_height, std::string name) {
+    this->window_width = window_width;
+    this->window_height = window_height;
+    this->window_name = name;
+    this->main_camera = NULL;
 }
 
 BaseApp::~BaseApp() {
     glfwTerminate();
+    if (main_camera) {
+        delete main_camera;
+    }
 }
 
 int BaseApp::Initialize() {
@@ -23,7 +29,7 @@ int BaseApp::Initialize() {
     // making a window
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // I'm going to be working with 3.3+ functionality I think
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    this->window = glfwCreateWindow(640, 480, "Teapot Explosion", NULL, NULL);
+    this->window = glfwCreateWindow(this->window_width, this->window_height, "Teapot Explosion", NULL, NULL);
     if (!this->window) {
         std::cerr << "Failed to create window." << std::endl;
         glfwTerminate();
@@ -55,6 +61,7 @@ void BaseApp::Run() {
         // clear the screen
         glClear(GL_COLOR_BUFFER_BIT);
 
+        //this->main_camera.Draw(this->scene);
 
         // swap the buffers after drawing
         glfwSwapBuffers(this->window);

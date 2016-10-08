@@ -1,5 +1,8 @@
 #include "camera.h"
 
+Camera::Camera() {}
+Camera::~Camera() {}
+
 glm::mat4 Camera::GetViewMatrix() {
     // return identity for the moment
     return glm::mat4(1.0f);

@@ -66,6 +66,8 @@ int main(int argc, char **argv) {
     // setup the mesh buffers with the shader
     teapot.mesh->SetupBuffers(teapot.shader);
 
+    base.scene = &teapot;
+
 #ifdef DEBUG
     // debug output the mesh
     std::cout << "--------------------Mesh-------------------" << std::endl 
@@ -73,6 +75,9 @@ int main(int argc, char **argv) {
         << "-------------------------------------------";
 #endif
     
+    std::cout << "constructing a camera" << std::endl;
+    Camera main_camera;
+
     // run the main application
     base.Run();
 

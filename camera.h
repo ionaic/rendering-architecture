@@ -4,7 +4,10 @@
 #include "scene.h"
 
 class Camera : public SceneObject {
-    glm::mat4 GetViewMatrix();
+    public:
+        Camera();
+        ~Camera();
+        glm::mat4 GetViewMatrix();
 
-    void Draw(const SceneObject *scene);
+        void Draw(const SceneObject *scene);
 };

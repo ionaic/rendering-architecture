@@ -73,16 +73,33 @@ Shader::Shader() {
     this->uv.location = 3;
 }
 Shader::~Shader() {
+    bool isProgram = glIsProgram(this->program);
+    bool isVertex = glIsShader(this->vertex);
+    bool isFragment = glIsShader(this->fragment);
     // detach the shaders from the program
-    glDetachShader(this->program, this->vertex);
-    glDetachShader(this->program, this->fragment);
+    if (isProgram && isVertex) {
+        glDetachShader(this->program, this->vertex);
+        checkGLError("Detaching vertex", __FILE__, __LINE__);
+    }
+    if (isProgram && isFragment) {
+        glDetachShader(this->program, this->fragment);
+        checkGLError("Detaching fragment", __FILE__, __LINE__);
+    }
     
     // delete the shaders
-    glDeleteShader(this->vertex);
-    glDeleteShader(this->fragment);
+    if (isVertex) {
+        glDeleteShader(this->vertex);
+        checkGLError("Deleting vertex", __FILE__, __LINE__);
+    }
+    if (isFragment) {
+        glDeleteShader(this->fragment);
+        checkGLError("Deleting fragment", __FILE__, __LINE__);
+    }
 
     // delete the shader program
-    glDeleteProgram(this->program);
+    if (isProgram) {
+        glDeleteProgram(this->program);
+    }
     checkGLError("Destroying shader", __FILE__, __LINE__);
 }
 
