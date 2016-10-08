@@ -6,10 +6,14 @@
 #include <list>
 #include "glinc.h"
 #include "errors.h"
+#include <iostream>
 
 class VertexAttribute {
     public:
-        GLuint location = 0;
+        VertexAttribute();
+        VertexAttribute(GLint location, std::string name);
+        ~VertexAttribute();
+        GLint location = 0;
         std::string name = "";
 
         void FindInShader(GLuint shader);
@@ -18,7 +22,7 @@ class VertexAttribute {
 
 class ShaderUniform {
     public:
-        GLuint location = 0;
+        GLint location = 0;
         std::string name = "";
 };
 

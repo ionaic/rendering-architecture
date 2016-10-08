@@ -58,7 +58,10 @@ int main(int argc, char **argv) {
     // create a shader from the basic.vert and basic.frag files
     teapot.shader.ReadVertexFromFile("basic.vert");
     teapot.shader.ReadFragmentFromFile("basic.frag");
-    teapot.shader.Initialize();
+    if (!teapot.shader.Initialize()) {
+        std::cout << "Failed to initialize shaders" << std::endl;
+        return 1;
+    }
 
     // setup the mesh buffers with the shader
     teapot.mesh->SetupBuffers(teapot.shader);

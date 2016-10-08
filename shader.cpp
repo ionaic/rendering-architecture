@@ -61,9 +61,16 @@ Shader::Shader() {
     this->projection.name = "projection";
 
     this->position.name = "position";
+    this->position.location = 0;
+
     this->color.name = "color";
+    this->color.location = 1;
+
     this->normal.name = "normal";
+    this->normal.location = 2;
+
     this->uv.name = "uv";
+    this->uv.location = 3;
 }
 Shader::~Shader() {
     // detach the shaders from the program
@@ -118,7 +125,7 @@ std::string Shader::ReadFile(std::string fname) {
 
 bool Shader::Initialize(bool print_log) {
     int src_len = 0;
-    bool err = false;
+    bool success = false;
 
     // set up vertex shader
     this->vertex = glCreateShader(GL_VERTEX_SHADER);
@@ -129,7 +136,7 @@ bool Shader::Initialize(bool print_log) {
     checkGLError("Setting vertex shader source", __FILE__, __LINE__);
     glCompileShader(this->vertex);
     checkGLError("Compiling vertex shader", __FILE__, __LINE__);
-    err = err || Shader::CheckShader(this->vertex);
+    success = success || Shader::CheckShader(this->vertex);
 
     // set up fragment shader
     this->fragment = glCreateShader(GL_FRAGMENT_SHADER);
@@ -140,7 +147,7 @@ bool Shader::Initialize(bool print_log) {
     checkGLError("Setting fragment shader source", __FILE__, __LINE__);
     glCompileShader(this->fragment);
     checkGLError("Compiling fragment shader", __FILE__, __LINE__);
-    err = err || Shader::CheckShader(this->fragment);
+    success = success || Shader::CheckShader(this->fragment);
 
     this->program = glCreateProgram();
     checkGLError("Creating shader program", __FILE__, __LINE__);
@@ -151,17 +158,27 @@ bool Shader::Initialize(bool print_log) {
 
     glLinkProgram(this->program);
     checkGLError("Linking shader program", __FILE__, __LINE__);
-    err = err || Shader::CheckProgram(this->program, this->fragment, this->vertex);
+    success = success || Shader::CheckProgram(this->program, this->fragment, this->vertex);
 
+    this->UseShader();
+
+    std::cout << "Error value: " << success << std::endl;
     // if the program failed to initialize this will segfault
-    if (!err) {
-        this->position.FindInShader(this->program);
-        this->color.FindInShader(this->program);
-        this->normal.FindInShader(this->program);
-        this->uv.FindInShader(this->program);
+    if (success) {
+        //std::cout << "Getting attribute locations" << std::endl;
+        //this->position.FindInShader(this->program);
+        //this->color.FindInShader(this->program);
+        //this->normal.FindInShader(this->program);
+        //this->uv.FindInShader(this->program);
+        
+        std::cout << "Binding attribute locations" << std::endl;
+        this->position.BindLocation(this->program);
+        this->color.BindLocation(this->program);
+        this->normal.BindLocation(this->program);
+        this->uv.BindLocation(this->program);
     }
     
-    return err;
+    return success;
 }
 
 void Shader::UseShader() const {
@@ -174,6 +191,12 @@ void Shader::AddAttribute(std::string name) {
     attr.FindInShader(this->vertex);
     this->attributes.push_back(attr);
 }
+
+VertexAttribute::VertexAttribute() {}
+
+VertexAttribute::VertexAttribute(GLint location, std::string name) : location(location), name(name) {}
+
+VertexAttribute::~VertexAttribute() {}
 
 void VertexAttribute::FindInShader(GLuint shader) {
     this->location = glGetAttribLocation(shader, this->name.c_str());

@@ -22,3 +22,6 @@ clean:
 
 run: $(TARGET)
 	./$(TARGET) $(TEAPOT_FILE)
+
+drun: debug $(TARGET)
+	gdb --args $(TARGET) $(TEAPOT_FILE)

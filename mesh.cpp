@@ -22,10 +22,14 @@ void Mesh::SetupBuffers(Shader &shader) {
     checkGLError("Binding VAO", __FILE__, __LINE__);
 
     // enable the attributes
-    glEnableVertexArrayAttrib(this->buffers.vao, shader.position.location);
-    glEnableVertexArrayAttrib(this->buffers.vao, shader.color.location);
-    glEnableVertexArrayAttrib(this->buffers.vao, shader.normal.location);
-    glEnableVertexArrayAttrib(this->buffers.vao, shader.uv.location);
+    //glEnableVertexArrayAttrib(this->buffers.vao, shader.position.location);
+    //glEnableVertexArrayAttrib(this->buffers.vao, shader.color.location);
+    //glEnableVertexArrayAttrib(this->buffers.vao, shader.normal.location);
+    //glEnableVertexArrayAttrib(this->buffers.vao, shader.uv.location);
+    glEnableVertexAttribArray(shader.position.location);
+    glEnableVertexAttribArray(shader.color.location);
+    glEnableVertexAttribArray(shader.normal.location);
+    glEnableVertexAttribArray(shader.uv.location);
     checkGLError("Enabling vertex attributes.", __FILE__, __LINE__);
 
     // populate the buffer with data
