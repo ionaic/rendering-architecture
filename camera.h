@@ -2,6 +2,8 @@
 #include <glm/glm.hpp>
 #include "mesh.h"
 #include "scene.h"
+#include "glinc.h"
+#include <iostream>
 
 class Camera : public SceneObject {
     public:

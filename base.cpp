@@ -1,21 +1,24 @@
 #include "base.h"
 
 BaseApp::BaseApp() {
-    BaseApp(640, 480, "Teapot Explosion");
+    this->window_width = 640;
+    this->window_height = 480;
+    this->window_name = "Teapot Explosion";
+    //this->main_camera = new Camera();
 }
 
 BaseApp::BaseApp(unsigned int window_width, unsigned int window_height, std::string name) {
     this->window_width = window_width;
     this->window_height = window_height;
     this->window_name = name;
-    this->main_camera = NULL;
+    //this->main_camera = new Camera();
 }
 
 BaseApp::~BaseApp() {
     glfwTerminate();
-    if (main_camera) {
-        delete main_camera;
-    }
+    //if (main_camera) {
+    //    delete main_camera;
+    //}
 }
 
 int BaseApp::Initialize() {
@@ -50,6 +53,9 @@ int BaseApp::Initialize() {
     // clear screen to black
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+    //is this...a thing?
+    //glEnableClientState(GL_VERTEX_ARRAY);
+
     checkGLError("Finished setup.", __FILE__, __LINE__);
 
     return 0;
@@ -61,7 +67,7 @@ void BaseApp::Run() {
         // clear the screen
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //this->main_camera.Draw(this->scene);
+        this->main_camera.Draw(this->scene);
 
         // swap the buffers after drawing
         glfwSwapBuffers(this->window);

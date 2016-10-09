@@ -223,4 +223,6 @@ void VertexAttribute::FindInShader(GLuint shader) {
 
 void VertexAttribute::BindLocation(GLuint program) {
     glBindAttribLocation(program, location, name.c_str());
+    std::string msg = "Binding attribute location " + this->location + std::string(" ") + this->name;
+    checkGLError(msg.c_str(), __FILE__, __LINE__);
 }

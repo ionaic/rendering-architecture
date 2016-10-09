@@ -47,10 +47,10 @@ void RawMesh::addUv(const glm::vec3 &uv) {
 //    indices.push_back(tmp);
 //}
 void RawMesh::addVertex(const Vertex &v) {
-
+    this->vertices.push_back(v);
 }
 void RawMesh::addVertices(const std::vector<Vertex> &vertices) {
-
+    this->vertices.insert(this->vertices.end(), vertices.begin(), vertices.end());
 }
 
 void RawMesh::addFace(const Face &f) {
@@ -92,4 +92,3 @@ std::string RawMesh::toString() const {
 
     return out.str();
 }
-

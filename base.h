@@ -22,5 +22,5 @@ class BaseApp {
         std::string window_name;
 
         SceneObject *scene;
-        Camera *main_camera;
+        Camera main_camera;
 };

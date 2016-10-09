@@ -75,9 +75,6 @@ int main(int argc, char **argv) {
         << "-------------------------------------------";
 #endif
     
-    std::cout << "constructing a camera" << std::endl;
-    Camera main_camera;
-
     // run the main application
     base.Run();
 

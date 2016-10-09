@@ -2,6 +2,7 @@
 #include "glinc.h"
 #include "shader.h"
 #include <vector>
+#include <iostream>
 
 class Camera;
 
@@ -12,9 +13,9 @@ struct Vertex {
     glm::vec2 uv;
 };
 struct Face {
-    unsigned int a;
-    unsigned int b;
-    unsigned int c;
+    unsigned int a = 0;
+    unsigned int b = 0;
+    unsigned int c = 0;
 };
 
 // base mesh type
